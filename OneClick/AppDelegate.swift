@@ -7,4 +7,9 @@
 
 import SwiftUI
 
-class AppDelegate: NSObject, NSApplicationDelegate {}
+class AppDelegate: NSObject, NSApplicationDelegate {
+    func applicationWillFinishLaunching(_ notification: Notification) {
+        let _ = AccessibilityService.shared.checkPermission()
+    }
+}
+
