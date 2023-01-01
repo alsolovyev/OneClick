@@ -7,38 +7,29 @@
 
 import SwiftUI
 
-class WindowViewModel: ObservableObject {
-    private var screenSize: CGSize = CGSize(width: 0, height: 0)
-    
-    static let shared = WindowViewModel()
-    
-    private init() {
-        getScreenSize()
-    }
+class WindowManagerService: ObservableObject {
+    static let shared = WindowManagerService()
     
     func enterFullScreen() {
+        if (!AccessibilityService.shared.isPermitted) {
+            return
+        }
+        
         let focusedWindow: AXUIElement? = getFocusedWindow()
         
         guard focusedWindow != nil else {
             return
         }
         
-        var position : CFTypeRef
-        var size : CFTypeRef
-        var newPoint = CGPoint(x: 19, y: 44 + 19)
-        var newSize = CGSize(width: screenSize.width - 19 * 2, height: screenSize.height - 19 * 2)
+        let visibleFrame = NSScreen.main!.adjustedVisibleFrame
         
+        var leftTopPoint = CGPoint(x: visibleFrame.origin.x, y: visibleFrame.origin.y)
+        let newPosition: CFTypeRef = AXValueCreate(AXValueType(rawValue: kAXValueCGPointType)!,&leftTopPoint)!
+        AXUIElementSetAttributeValue(focusedWindow!, NSAccessibility.Attribute.position.rawValue as CFString, newPosition)
 
-        position = AXValueCreate(AXValueType(rawValue: kAXValueCGPointType)!,&newPoint)!
-        AXUIElementSetAttributeValue(focusedWindow!, NSAccessibility.Attribute.position.rawValue as CFString, position)
-        
-        size = AXValueCreate(AXValueType(rawValue: kAXValueCGSizeType)!,&newSize)!;
-        AXUIElementSetAttributeValue(focusedWindow!, NSAccessibility.Attribute.size.rawValue as CFString, size);
-    }
-    
-    private func getScreenSize() {
-        let size: CGSize? = NSScreen.main?.visibleFrame.size
-        screenSize = size!
+        var size = CGSize(width: visibleFrame.size.width, height: visibleFrame.size.height)
+        let newSize = AXValueCreate(AXValueType(rawValue: kAXValueCGSizeType)!,&size)!
+        AXUIElementSetAttributeValue(focusedWindow!, NSAccessibility.Attribute.size.rawValue as CFString, newSize)
     }
     
     private func getFocusedWindow() -> AXUIElement? {
