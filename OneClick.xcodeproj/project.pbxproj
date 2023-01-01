@@ -11,6 +11,7 @@
 		A1B7BCEC29617F9A002A0080 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B7BCEB29617F9A002A0080 /* ContentView.swift */; };
 		A1B7BCEE29617F9B002A0080 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B7BCED29617F9B002A0080 /* Assets.xcassets */; };
 		A1B7BCF129617F9B002A0080 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B7BCF029617F9B002A0080 /* Preview Assets.xcassets */; };
+		A1B7BCFC29618120002A0080 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B7BCFB29618120002A0080 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		A1B7BCED29617F9B002A0080 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1B7BCF029617F9B002A0080 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A1B7BCF229617F9B002A0080 /* OneClick.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneClick.entitlements; sourceTree = "<group>"; };
+		A1B7BCFB29618120002A0080 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +54,9 @@
 		A1B7BCE829617F9A002A0080 /* OneClick */ = {
 			isa = PBXGroup;
 			children = (
+				A1B7BCFA296180E6002A0080 /* Views */,
 				A1B7BCE929617F9A002A0080 /* OneClickApp.swift */,
-				A1B7BCEB29617F9A002A0080 /* ContentView.swift */,
+				A1B7BCFB29618120002A0080 /* AppDelegate.swift */,
 				A1B7BCED29617F9B002A0080 /* Assets.xcassets */,
 				A1B7BCF229617F9B002A0080 /* OneClick.entitlements */,
 				A1B7BCEF29617F9B002A0080 /* Preview Content */,
@@ -67,6 +70,14 @@
 				A1B7BCF029617F9B002A0080 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A1B7BCFA296180E6002A0080 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A1B7BCEB29617F9A002A0080 /* ContentView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +150,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1B7BCFC29618120002A0080 /* AppDelegate.swift in Sources */,
 				A1B7BCEC29617F9A002A0080 /* ContentView.swift in Sources */,
 				A1B7BCEA29617F9A002A0080 /* OneClickApp.swift in Sources */,
 			);
