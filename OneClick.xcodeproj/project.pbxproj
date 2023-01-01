@@ -54,6 +54,7 @@
 		A1B7BCE829617F9A002A0080 /* OneClick */ = {
 			isa = PBXGroup;
 			children = (
+				A1B7BCFD2961831A002A0080 /* ViewModels */,
 				A1B7BCFA296180E6002A0080 /* Views */,
 				A1B7BCE929617F9A002A0080 /* OneClickApp.swift */,
 				A1B7BCFB29618120002A0080 /* AppDelegate.swift */,
@@ -78,6 +79,13 @@
 				A1B7BCEB29617F9A002A0080 /* ContentView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		A1B7BCFD2961831A002A0080 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,7 +291,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"OneClick/Preview Content\"";
 				DEVELOPMENT_TEAM = RR8VSFZMZ2;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSUIElement = YES;
@@ -311,7 +319,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"OneClick/Preview Content\"";
 				DEVELOPMENT_TEAM = RR8VSFZMZ2;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSUIElement = YES;
