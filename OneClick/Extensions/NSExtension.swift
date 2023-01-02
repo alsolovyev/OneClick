@@ -7,6 +7,7 @@
 
 import Cocoa
 
+
 extension NSScreen {
     var adjustedVisibleFrame: CGRect {
         get {

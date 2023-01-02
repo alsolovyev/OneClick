@@ -23,13 +23,8 @@ class WindowManagerService: ObservableObject {
         
         let visibleFrame = NSScreen.main!.adjustedVisibleFrame
 
-        var leftTopPoint = CGPoint(x: visibleFrame.origin.x, y: visibleFrame.origin.y)
-        let newPosition: CFTypeRef = AXValueCreate(AXValueType(rawValue: kAXValueCGPointType)!, &leftTopPoint)!
-        focusedWindow!.setValue(.position, newPosition)
-
-        var size = CGSize(width: visibleFrame.size.width, height: visibleFrame.size.height)
-        let newSize = AXValueCreate(AXValueType(rawValue: kAXValueCGSizeType)!, &size)!
-        focusedWindow!.setValue(.size, newSize)
+        focusedWindow!.setValue(.position, CGPoint(x: visibleFrame.origin.x, y: visibleFrame.origin.y).toAXValue())
+        focusedWindow!.setValue(.size, CGSize(width: visibleFrame.size.width, height: visibleFrame.size.height).toAXValue())
     }
     
     private func getFocusedWindow() -> AXUIElement? {

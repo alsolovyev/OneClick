@@ -10,6 +10,7 @@
 		A10FE1C229632BF30087BBF1 /* NSExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10FE1C129632BF30087BBF1 /* NSExtension.swift */; };
 		A10FE1C5296334480087BBF1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10FE1C4296334480087BBF1 /* Constants.swift */; };
 		A10FE1C729633C760087BBF1 /* AXExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10FE1C629633C760087BBF1 /* AXExtension.swift */; };
+		A10FE1C9296348720087BBF1 /* CGExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10FE1C8296348720087BBF1 /* CGExtension.swift */; };
 		A1B7BCEA29617F9A002A0080 /* OneClickApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B7BCE929617F9A002A0080 /* OneClickApp.swift */; };
 		A1B7BCEC29617F9A002A0080 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B7BCEB29617F9A002A0080 /* ContentView.swift */; };
 		A1B7BCEE29617F9B002A0080 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B7BCED29617F9B002A0080 /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 		A10FE1C129632BF30087BBF1 /* NSExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSExtension.swift; sourceTree = "<group>"; };
 		A10FE1C4296334480087BBF1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A10FE1C629633C760087BBF1 /* AXExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AXExtension.swift; sourceTree = "<group>"; };
+		A10FE1C8296348720087BBF1 /* CGExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGExtension.swift; sourceTree = "<group>"; };
 		A1B7BCE629617F9A002A0080 /* OneClick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneClick.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B7BCE929617F9A002A0080 /* OneClickApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneClickApp.swift; sourceTree = "<group>"; };
 		A1B7BCEB29617F9A002A0080 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -50,6 +52,7 @@
 			children = (
 				A10FE1C129632BF30087BBF1 /* NSExtension.swift */,
 				A10FE1C629633C760087BBF1 /* AXExtension.swift */,
+				A10FE1C8296348720087BBF1 /* CGExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 				A1B7BD0229618A4F002A0080 /* WindowManagerService.swift in Sources */,
 				A10FE1C5296334480087BBF1 /* Constants.swift in Sources */,
 				A1B7BCEA29617F9A002A0080 /* OneClickApp.swift in Sources */,
+				A10FE1C9296348720087BBF1 /* CGExtension.swift in Sources */,
 				A10FE1C229632BF30087BBF1 /* NSExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
