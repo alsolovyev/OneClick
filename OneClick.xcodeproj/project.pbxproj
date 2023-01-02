@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A10FE1C229632BF30087BBF1 /* NSExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10FE1C129632BF30087BBF1 /* NSExtension.swift */; };
+		A10FE1C5296334480087BBF1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10FE1C4296334480087BBF1 /* Constants.swift */; };
 		A1B7BCEA29617F9A002A0080 /* OneClickApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B7BCE929617F9A002A0080 /* OneClickApp.swift */; };
 		A1B7BCEC29617F9A002A0080 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B7BCEB29617F9A002A0080 /* ContentView.swift */; };
 		A1B7BCEE29617F9B002A0080 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B7BCED29617F9B002A0080 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		A10FE1C129632BF30087BBF1 /* NSExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSExtension.swift; sourceTree = "<group>"; };
+		A10FE1C4296334480087BBF1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A1B7BCE629617F9A002A0080 /* OneClick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneClick.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B7BCE929617F9A002A0080 /* OneClickApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneClickApp.swift; sourceTree = "<group>"; };
 		A1B7BCEB29617F9A002A0080 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -49,6 +51,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		A10FE1C32963343A0087BBF1 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A10FE1C4296334480087BBF1 /* Constants.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		A1B7BCDD29617F9A002A0080 = {
 			isa = PBXGroup;
 			children = (
@@ -68,6 +78,7 @@
 		A1B7BCE829617F9A002A0080 /* OneClick */ = {
 			isa = PBXGroup;
 			children = (
+				A10FE1C32963343A0087BBF1 /* Utils */,
 				A10FE1C029632BB30087BBF1 /* Extensions */,
 				A1B7BCFE29618453002A0080 /* Services */,
 				A1B7BCFA296180E6002A0080 /* Views */,
@@ -179,6 +190,7 @@
 				A1B7BCEC29617F9A002A0080 /* ContentView.swift in Sources */,
 				A1B7BD0029618473002A0080 /* AccessibilityService.swift in Sources */,
 				A1B7BD0229618A4F002A0080 /* WindowManagerService.swift in Sources */,
+				A10FE1C5296334480087BBF1 /* Constants.swift in Sources */,
 				A1B7BCEA29617F9A002A0080 /* OneClickApp.swift in Sources */,
 				A10FE1C229632BF30087BBF1 /* NSExtension.swift in Sources */,
 			);

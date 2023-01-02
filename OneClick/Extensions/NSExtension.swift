@@ -12,10 +12,12 @@ extension NSScreen {
         get {
             var adjustedFrame: CGRect = visibleFrame
             
-            adjustedFrame.origin.x += 19
-            adjustedFrame.origin.y += 44 + 19
-            adjustedFrame.size.width -= 19 * 2
-            adjustedFrame.size.height -= 19 * 2
+            let menuBarSize: CGFloat = 44
+            
+            adjustedFrame.origin.x += Constants.Window.gap
+            adjustedFrame.origin.y += menuBarSize + Constants.Window.gap
+            adjustedFrame.size.width -= Constants.Window.gap * 2
+            adjustedFrame.size.height -= Constants.Window.gap * 2
             
             return adjustedFrame
         }
