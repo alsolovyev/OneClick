@@ -9,9 +9,9 @@ import OSAKit
 
 
 extension String {
-    func runScript(_ asAdmin: Bool = false) -> Void {
+    func runScript(_ asAdmin: Bool = false) throws -> String {
         var source: String = "do shell script \"\(self)\""
-
+        
         if (asAdmin) {
             source += " with prompt \"OneClick\" with administrator privileges"
         }
@@ -20,6 +20,16 @@ extension String {
         process.arguments = ["-e", source]
         process.launchPath = "/usr/bin/osascript"
         process.standardInput = nil
-        process.launch()
+        
+        let outputPipe = Pipe()
+        process.standardOutput = outputPipe
+        
+        do {
+            try process.run()
+            let outputData = outputPipe.fileHandleForReading.readDataToEndOfFile()
+            return String(decoding: outputData, as: UTF8.self)
+        } catch {
+            throw OneClickError.ScriptFailed
+        }
     }
 }
