@@ -14,6 +14,6 @@ struct OneClickApp: App {
     var body: some Scene {
         MenuBarExtra("OneClick", systemImage: "heart.fill") {
             ContentView()
-        }
+        }.menuBarExtraStyle(.window)
     }
 }
