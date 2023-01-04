@@ -12,8 +12,8 @@ struct OneClickApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     var body: some Scene {
-        MenuBarExtra("OneClick", systemImage: "heart.fill") {
-            ContentView()
-        }.menuBarExtraStyle(.window)
+        Settings {
+            EmptyView()
+        }
     }
 }

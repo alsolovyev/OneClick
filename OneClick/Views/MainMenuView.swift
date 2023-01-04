@@ -7,13 +7,10 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct MainMenuView: View {
     @ObservedObject var lowPower: LowPowerViewModel = LowPowerViewModel()
     
-    let test = Color("Border")
-    
     var body: some View {
-        //        Grid(alignment: .leading, verticalSpacing: 9) {
         VStack(alignment: .leading) {
             HStack(alignment: .top, spacing: 9) {
                 OneClickButton(title: "Enter Full Screen", icon: "rectangle.fill") {
@@ -40,14 +37,13 @@ struct ContentView: View {
             }
         }
         .padding(9)
-        .background(EffectsView(material: NSVisualEffectView.Material.popover, blendingMode: NSVisualEffectView.BlendingMode.behindWindow))
     }
     
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct MainMenuView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        MainMenuView()
     }
 }
 
@@ -94,7 +90,6 @@ struct OneClickSwitch: View {
                 .stroke(.black.opacity(0.2), lineWidth: 0.5)
                 .blur(radius: 1.0)
         )
-        .background(EffectsView(material: NSVisualEffectView.Material.popover, blendingMode: NSVisualEffectView.BlendingMode.behindWindow))
     }
 }
 
@@ -134,24 +129,5 @@ struct OneClickButton: View {
                 .stroke(.black.opacity(0.2), lineWidth: 0.5)
                 .blur(radius: 1.0)
         )
-        .background(EffectsView(material: NSVisualEffectView.Material.popover, blendingMode: NSVisualEffectView.BlendingMode.behindWindow))
-    }
-}
-
-struct EffectsView: NSViewRepresentable {
-    var material: NSVisualEffectView.Material
-    var blendingMode: NSVisualEffectView.BlendingMode
-    
-    func makeNSView(context: Context) -> NSVisualEffectView {
-        let visualEffectView = NSVisualEffectView()
-        visualEffectView.material = material
-        visualEffectView.blendingMode = blendingMode
-        visualEffectView.state = NSVisualEffectView.State.active
-        return visualEffectView
-    }
-    
-    func updateNSView(_ visualEffectView: NSVisualEffectView, context: Context) {
-        visualEffectView.material = material
-        visualEffectView.blendingMode = blendingMode
     }
 }
