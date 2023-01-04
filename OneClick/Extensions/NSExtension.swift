@@ -15,10 +15,7 @@ extension NSScreen {
             
             let menuBarSize: CGFloat = 44
             
-            adjustedFrame.origin.x += Constants.Window.gap
-            adjustedFrame.origin.y += menuBarSize + Constants.Window.gap
-            adjustedFrame.size.width -= Constants.Window.gap * 2
-            adjustedFrame.size.height -= Constants.Window.gap * 2
+            adjustedFrame.origin.y += menuBarSize
             
             return adjustedFrame
         }

@@ -5,12 +5,19 @@
 //  Created by Aleksey Solovyev on 01.01.2023.
 //
 
+import Foundation
 import SwiftUI
 
 class WindowManagerService: ObservableObject {
     static let shared = WindowManagerService()
     
-    func enterFullScreen() {
+    private var positions: WindowManagerModel.Positions = WindowManagerModel.Positions()
+    
+    init() {
+        getPositions()
+    }
+    
+    func moveTo(_ position: WindowManagerModel.Position) {
         if (!AccessibilityService.shared.isPermitted) {
             return
         }
@@ -21,12 +28,55 @@ class WindowManagerService: ObservableObject {
             return
         }
         
-        let visibleFrame = NSScreen.main!.adjustedVisibleFrame
+        let newPosition = positions.get(position)
 
-        focusedWindow!.setValue(.position, CGPoint(x: visibleFrame.origin.x, y: visibleFrame.origin.y).toAXValue())
-        focusedWindow!.setValue(.size, CGSize(width: visibleFrame.size.width, height: visibleFrame.size.height).toAXValue())
+        focusedWindow!.setValue(.position, newPosition.point.toAXValue())
+        
+        guard newPosition.size != nil else { return }
+        focusedWindow!.setValue(.size, newPosition.size!.toAXValue())
     }
-    
+}
+
+extension WindowManagerService {
+    private func getPositions() {
+        let frame = NSScreen.main?.adjustedVisibleFrame
+        
+        let minX = frame!.origin.x + Constants.Window.gap
+        let minY = frame!.origin.y + Constants.Window.gap
+        let maxWidth = frame!.size.width - Constants.Window.gap * 2
+        let maxHeight = frame!.size.height - Constants.Window.gap * 2
+        let twoThirdsWidth = maxWidth * 2 / 3
+        let oneThirdWidth = maxWidth / 3
+        
+        positions.fullScreen = WindowManagerModel.Frame(
+            x: minX,
+            y: minY,
+            width: maxWidth,
+            height: maxHeight
+        )
+        
+        positions.center = WindowManagerModel.Frame(
+            x: maxWidth / 2,
+            y: maxWidth / 2
+        )
+        
+        positions.leftTwoThirds = WindowManagerModel.Frame(
+            x: minX,
+            y: minY,
+            width: twoThirdsWidth - Constants.Window.gap,
+            height: maxHeight
+        )
+        
+        positions.rightOneThird = WindowManagerModel.Frame(
+            x: twoThirdsWidth + Constants.Window.gap,
+            y: minY,
+            width: oneThirdWidth,
+            height: maxHeight
+        )
+    }
+}
+
+extension WindowManagerService {
     private func getFocusedWindow() -> AXUIElement? {
         let focusedApp: NSRunningApplication? = NSWorkspace.shared.frontmostApplication
         
@@ -40,7 +90,7 @@ class WindowManagerService: ObservableObject {
             return nil
         }
         
-        //Get frontmost application windows
+        // Get frontmost application windows
         let appRef = AXUIElementCreateApplication(focusedApp!.processIdentifier)
         
         var windows: AnyObject? // NSArray

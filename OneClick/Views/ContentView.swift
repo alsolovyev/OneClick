@@ -13,7 +13,15 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Button("Enter Full Screen") {
-                WindowManagerService.shared.enterFullScreen()
+                WindowManagerService.shared.moveTo(.fullScreen)
+            }
+            
+            Button("Left Two Thirds") {
+                WindowManagerService.shared.moveTo(.leftTwoThirds)
+            }
+            
+            Button("Right One Third") {
+                WindowManagerService.shared.moveTo(.rightOneThird)
             }
             
             Button("\(lowPower.isEnabled ? "Disable" : "Enable") low power mode") {
