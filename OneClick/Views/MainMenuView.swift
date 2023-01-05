@@ -11,17 +11,17 @@ struct MainMenuView: View {
     @ObservedObject var lowPower: LowPowerViewModel = LowPowerViewModel()
     
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .center) {
             HStack(alignment: .top, spacing: 9) {
-                OneClickButton(title: "Enter Full Screen", icon: "rectangle.fill") {
+                OneClickButton(title: "Enter Full Screen", icon: "camera.metering.center.weighted.average") {
                     WindowManagerService.shared.moveTo(.fullScreen)
                 }
                 
-                OneClickButton(title: "Left Two Thirds", icon: "rectangle.fill") {
+                OneClickButton(title: "Left Two Thirds", icon: "camera.metering.center.weighted.average") {
                     WindowManagerService.shared.moveTo(.leftTwoThirds)
                 }
                 
-                OneClickButton(title: "Right One Third", icon: "rectangle.fill") {
+                OneClickButton(title: "Right One Third", icon: "camera.metering.center.weighted.average") {
                     WindowManagerService.shared.moveTo(.rightOneThird)
                 }
             }
@@ -78,10 +78,12 @@ struct OneClickSwitch: View {
             .cornerRadius(8)
             .padding(.horizontal, 10)
             .padding(.vertical, 10)
+            .frame(width: 240, alignment: .leading)
             .overlay(
                 RoundedRectangle(cornerRadius: 8)
                     .stroke(.white.opacity(0.1), lineWidth: 1)
             )
+            
         }
         .buttonStyle(.plain)
         .background(.gray.opacity(0.1))
