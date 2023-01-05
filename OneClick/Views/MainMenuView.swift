@@ -79,6 +79,7 @@ struct OneClickSwitch: View {
             .padding(.horizontal, 10)
             .padding(.vertical, 10)
             .frame(width: 240, alignment: .leading)
+            .contentShape(Rectangle())
             .overlay(
                 RoundedRectangle(cornerRadius: 8)
                     .stroke(.white.opacity(0.1), lineWidth: 1)
@@ -116,6 +117,7 @@ struct OneClickButton: View {
                     .frame(width: 60.0)
             }
             .frame(width: 70, height: 62)
+            .contentShape(Rectangle())
             .background(.gray.opacity(0.1))
             .cornerRadius(8)
             .overlay(
