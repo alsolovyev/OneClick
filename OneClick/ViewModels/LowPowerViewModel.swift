@@ -11,29 +11,30 @@ class LowPowerViewModel: ObservableObject {
     @Published public var isEnabled: Bool = false
     
     init() {
-        isEnabled = getStatus()
+        getStatus()
     }
     
-    func getStatus() -> Bool {
+    func getStatus() -> Void {
         do {
-            let output = try "pmset -g | grep lowpowermode".runScript()
-            return output.contains("1")
-        } catch {
-            return false
-        }
+            try "pmset -g | grep lowpowermode".runScript() { out in
+                self.isEnabled = out.contains("1")
+            }
+        } catch { }
     }
     
     func enable() -> Void {
         do {
-            _ = try "pmset -a lowpowermode 1".runScript(true)
-            isEnabled = true
+            try "pmset -a lowpowermode 1".runScript(true) { out in
+                self.isEnabled = true
+            }
         } catch { }
     }
     
     func disable() -> Void {
         do {
-            _ = try "pmset -a lowpowermode 0".runScript(true)
-            isEnabled = false
+            try "pmset -a lowpowermode 0".runScript(true) { _ in
+                self.isEnabled = false
+            }
         } catch { }
     }
 }
