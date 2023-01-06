@@ -45,7 +45,7 @@ struct MainMenuView: View {
                 OneClickSwitch(
                     title: "Low Power Mode",
                     isEnabled: lowPower.isEnabled,
-                    icon: "moon.fill"
+                    icon: "bolt.fill"
                 ) {
                     lowPower.isEnabled ? lowPower.disable() : lowPower.enable()
                 }
@@ -75,11 +75,9 @@ struct OneClickSwitch: View {
             HStack(spacing: 10) {
                 ZStack() {
                     Circle()
-                        .frame(width: 26, height: 26)
+                        .frame(width: 32, height: 32)
                         .foregroundColor(isEnabled ? .blue : .gray.opacity(0.4))
                     Image(systemName: icon)
-                        .resizable()
-                        .frame(width: 14, height: 14)
                 }
                 
                 VStack(alignment: .leading) {
