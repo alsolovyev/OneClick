@@ -11,13 +11,9 @@ import SwiftUI
 class WindowManagerService: ObservableObject {
     static let shared = WindowManagerService()
     
-    private var positions: WindowManagerModel.Positions = WindowManagerModel.Positions()
+    private let mainScreen = NSScreen.main!.adjustedVisibleFrame
     
-    init() {
-        getPositions()
-    }
-    
-    func moveTo(_ position: WindowManagerModel.Position) {
+    func to(position: CGPoint) {
         if (!AccessibilityService.shared.isPermitted) {
             return
         }
@@ -28,54 +24,26 @@ class WindowManagerService: ObservableObject {
             return
         }
         
-        let newPosition = positions.get(position)
-
-        focusedWindow!.setValue(.position, newPosition.point.toAXValue())
+        focusedWindow!.setValue(.position, position.toAXValue())
+    }
+    
+    func to(position: CGPoint, size: CGSize) {
+        if (!AccessibilityService.shared.isPermitted) {
+            return
+        }
         
-        guard newPosition.size != nil else { return }
-        focusedWindow!.setValue(.size, newPosition.size!.toAXValue())
+        let focusedWindow: AXUIElement? = getFocusedWindow()
+        
+        guard focusedWindow != nil else {
+            return
+        }
+        
+        focusedWindow!.setValue(.position, position.toAXValue())
+        focusedWindow!.setValue(.size, size.toAXValue())
     }
 }
 
-extension WindowManagerService {
-    private func getPositions() {
-        let frame = NSScreen.main?.adjustedVisibleFrame
-        
-        let minX = frame!.origin.x + Constants.Window.gap
-        let minY = frame!.origin.y + Constants.Window.gap
-        let maxWidth = frame!.size.width - Constants.Window.gap * 2
-        let maxHeight = frame!.size.height - Constants.Window.gap * 2
-        let twoThirdsWidth = maxWidth * 2 / 3
-        let oneThirdWidth = maxWidth / 3
-        
-        positions.fullScreen = WindowManagerModel.Frame(
-            x: minX,
-            y: minY,
-            width: maxWidth,
-            height: maxHeight
-        )
-        
-        positions.center = WindowManagerModel.Frame(
-            x: maxWidth / 2,
-            y: maxWidth / 2
-        )
-        
-        positions.leftTwoThirds = WindowManagerModel.Frame(
-            x: minX,
-            y: minY,
-            width: twoThirdsWidth - Constants.Window.gap,
-            height: maxHeight
-        )
-        
-        positions.rightOneThird = WindowManagerModel.Frame(
-            x: twoThirdsWidth + Constants.Window.gap,
-            y: minY,
-            width: oneThirdWidth,
-            height: maxHeight
-        )
-    }
-}
-
+// MARK: - Get Focused Window
 extension WindowManagerService {
     private func getFocusedWindow() -> AXUIElement? {
         let focusedApp: NSRunningApplication? = NSWorkspace.shared.frontmostApplication
@@ -113,5 +81,52 @@ extension WindowManagerService {
         }
         
         return nil
+    }
+}
+
+
+// MARK: - To Full Screen
+extension WindowManagerService {
+    func toFullScreen() {
+        var position = mainScreen.point
+        position.x += Constants.Window.gap
+        position.y += Constants.Window.gap
+        
+        var size = mainScreen.size
+        size.width -= Constants.Window.gap * 2
+        size.height -= Constants.Window.gap * 2
+        
+        to(position: position, size: size)
+    }
+}
+
+
+// MARK: - Two Thirds to the Left
+extension WindowManagerService {
+    func toTwoThirdsLeft() {
+        var position = mainScreen.point
+        position.x += Constants.Window.gap
+        position.y += Constants.Window.gap
+        
+        var size = mainScreen.size
+        size.width = size.width / 3 * 2 - Constants.Window.gap
+        size.height -= Constants.Window.gap
+        
+        to(position: position, size: size)
+    }
+}
+
+// MARK: - One Third to the Right
+extension WindowManagerService {
+    func toOneThirdRight() {
+        var size = mainScreen.size
+        size.width /= 3
+        size.height -= Constants.Window.gap
+        
+        var position = mainScreen.point
+        position.x = mainScreen.width / 3 * 2
+        position.y += Constants.Window.gap
+        
+        to(position: position, size: size)
     }
 }

@@ -14,15 +14,15 @@ struct MainMenuView: View {
         VStack(alignment: .center) {
             HStack(alignment: .top, spacing: 9) {
                 OneClickButton(title: "Enter Full Screen", icon: "camera.metering.center.weighted.average") {
-                    WindowManagerService.shared.moveTo(.fullScreen)
+                    WindowManagerService.shared.toFullScreen()
                 }
                 
                 OneClickButton(title: "Left Two Thirds", icon: "camera.metering.center.weighted.average") {
-                    WindowManagerService.shared.moveTo(.leftTwoThirds)
+                    WindowManagerService.shared.toTwoThirdsLeft()
                 }
                 
                 OneClickButton(title: "Right One Third", icon: "camera.metering.center.weighted.average") {
-                    WindowManagerService.shared.moveTo(.rightOneThird)
+                    WindowManagerService.shared.toOneThirdRight()
                 }
             }
             
