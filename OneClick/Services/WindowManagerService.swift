@@ -88,7 +88,7 @@ extension WindowManagerService {
 // MARK: - To Full Screen
 extension WindowManagerService {
     func toFullScreen() {
-        var position = mainScreen.point
+        var position = mainScreen.origin
         position.x += Constants.Window.gap
         position.y += Constants.Window.gap
         
@@ -104,7 +104,7 @@ extension WindowManagerService {
 // MARK: - Two Thirds to the Left
 extension WindowManagerService {
     func toTwoThirdsLeft() {
-        var position = mainScreen.point
+        var position = mainScreen.origin
         position.x += Constants.Window.gap
         position.y += Constants.Window.gap
         
@@ -123,7 +123,7 @@ extension WindowManagerService {
         size.width /= 3
         size.height -= Constants.Window.gap
         
-        var position = mainScreen.point
+        var position = mainScreen.origin
         position.x = mainScreen.width / 3 * 2
         position.y += Constants.Window.gap
         
