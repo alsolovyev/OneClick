@@ -34,8 +34,16 @@ struct WindowManagerView: View {
                 ) {
                     WindowManagerService.shared.toOneThirdRight()
                 }
+                
+                OneClickButton(
+                    labelTop: "Left",
+                    labelBottom: "Nine Tenths",
+                    icon: "rectangle.leadinghalf.inset.filled"
+                ) {
+                    WindowManagerService.shared.toNineTenthsLeft()
+                }
             }
-        }.frame(width: 240, height: 66)
+        }.frame(width: 240)
     }
 }
 

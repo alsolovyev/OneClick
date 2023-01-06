@@ -130,3 +130,18 @@ extension WindowManagerService {
         to(position: position, size: size)
     }
 }
+
+// MARK: - Nine Tenths to the Left
+extension WindowManagerService {
+    func toNineTenthsLeft() {
+        var position = mainScreen.origin
+        position.x += Constants.Window.gap
+        position.y += Constants.Window.gap
+        
+        var size = mainScreen.size
+        size.width = size.width * 0.91
+        size.height -= Constants.Window.gap
+        
+        to(position: position, size: size)
+    }
+}
