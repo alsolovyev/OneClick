@@ -120,11 +120,11 @@ extension WindowManagerService {
 extension WindowManagerService {
     func toOneThirdRight() {
         var size = mainScreen.size
-        size.width /= 3
+        size.width = size.width / 3 - Constants.Window.gap * 2
         size.height -= Constants.Window.gap
         
         var position = mainScreen.origin
-        position.x = mainScreen.width / 3 * 2
+        position.x = mainScreen.width / 3 * 2 + Constants.Window.gap
         position.y += Constants.Window.gap
         
         to(position: position, size: size)
