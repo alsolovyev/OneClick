@@ -5,6 +5,9 @@
 //  Created by Aleksey Solovyev on 01.01.2023.
 //
 
+// TODO: - Split code into separate files
+// TODO: - Add button styles
+
 import SwiftUI
 
 struct MainMenuView: View {
@@ -13,15 +16,27 @@ struct MainMenuView: View {
     var body: some View {
         VStack(alignment: .center) {
             HStack(alignment: .top, spacing: 9) {
-                OneClickButton(title: "Enter Full Screen", icon: "camera.metering.center.weighted.average") {
+                OneClickButton(
+                    labelTop: "Enter",
+                    labelBottom: "Full Screen",
+                    icon: "rectangle.inset.filled"
+                ) {
                     WindowManagerService.shared.toFullScreen()
                 }
                 
-                OneClickButton(title: "Left Two Thirds", icon: "camera.metering.center.weighted.average") {
+                OneClickButton(
+                    labelTop: "Left",
+                    labelBottom: "Two Thirds",
+                    icon: "rectangle.leadinghalf.inset.filled"
+                ) {
                     WindowManagerService.shared.toTwoThirdsLeft()
                 }
                 
-                OneClickButton(title: "Right One Third", icon: "camera.metering.center.weighted.average") {
+                OneClickButton(
+                    labelTop: "Right",
+                    labelBottom: "One Third",
+                    icon: "rectangle.trailingthird.inset.filled"
+                ) {
                     WindowManagerService.shared.toOneThirdRight()
                 }
             }
@@ -97,7 +112,8 @@ struct OneClickSwitch: View {
 }
 
 struct OneClickButton: View {
-    var title: String
+    var labelTop: String
+    var labelBottom: String
     var icon: String
     var action: () -> Void
     
@@ -105,13 +121,18 @@ struct OneClickButton: View {
         Button{
             action()
         } label: {
-            VStack(spacing: 4) {
+            VStack() {
                 Image(systemName: icon)
                     .resizable()
                     .foregroundColor(.white.opacity(0.7))
-                    .frame(width: 16.0, height: 16.0)
-                Text(title)
-                    .font(.system(size: 10, weight: .medium))
+                    .frame(width: 19.2, height: 16.0)
+                Text(labelTop)
+                    .font(.system(size: 9, weight: .medium))
+                    .lineLimit(2)
+                    .multilineTextAlignment(.center)
+                    .frame(width: 60.0)
+                Text(labelBottom)
+                    .font(.system(size: 9, weight: .medium))
                     .lineLimit(2)
                     .multilineTextAlignment(.center)
                     .frame(width: 60.0)
