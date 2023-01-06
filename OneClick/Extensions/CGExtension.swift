@@ -21,3 +21,14 @@ extension CGSize {
         return AXValueCreate(AXValueType(rawValue: kAXValueCGSizeType)!, &value)!
     }
 }
+
+extension CGRect {
+    var point: CGPoint {
+        get {
+            return CGPoint(
+                x: self.origin.x,
+                y: self.origin.y
+            )
+        }
+    }
+}
