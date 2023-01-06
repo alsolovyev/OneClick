@@ -37,4 +37,8 @@ class LowPowerViewModel: ObservableObject {
             }
         } catch { }
     }
+    
+    func toggle() {
+        isEnabled ? disable() : enable()
+    }
 }

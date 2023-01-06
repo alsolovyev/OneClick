@@ -47,7 +47,7 @@ struct MainMenuView: View {
                     isEnabled: lowPower.isEnabled,
                     icon: "bolt.fill"
                 ) {
-                    lowPower.isEnabled ? lowPower.disable() : lowPower.enable()
+                    lowPower.toggle()
                 }
             }
         }
