@@ -12,6 +12,7 @@ import SwiftUI
 
 struct MainMenuView: View {
     @ObservedObject var lowPower: LowPowerViewModel = LowPowerViewModel()
+    @ObservedObject var launchAtLogin: LaunchAtLogin = LaunchAtLogin()
     
     var body: some View {
         VStack(alignment: .center) {
@@ -26,8 +27,38 @@ struct MainMenuView: View {
                     lowPower.toggle()
                 }
             }
+            
+            Divider()
+                .padding(.vertical)
+                .frame(width: 30)
+                .opacity(0.5)
+            
+            HStack(alignment: .center, spacing: 18) {
+                Button {
+                    NSApplication.shared.terminate(nil)
+                } label: {
+                    Image(systemName: "power")
+                        .foregroundColor(.white.opacity(0.5))
+                        .fontWeight(.medium)
+                }
+                    .buttonStyle(.plain)
+                    .help("Quit")
+                
+                Button {
+                    launchAtLogin.toggle()
+                } label: {
+                    Image(systemName: "pin")
+                        .foregroundColor(launchAtLogin.isEnabled ? .blue : .white.opacity(0.5))
+                        .fontWeight(.medium)
+                }
+                    .buttonStyle(.plain)
+                    .help("Launch at Login")
+            }
+            
+            
         }
         .padding(9)
+        .padding(.bottom, 12)
     }
     
 }
