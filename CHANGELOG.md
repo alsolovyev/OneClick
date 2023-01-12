@@ -4,6 +4,7 @@
 
 * add timer ([44d551](https://github.com/alsolovyev/OneClick/commit/44d551fad37b2d07115f7d6329d660a1a128c37a))
 * add notification service ([0b6fa0](https://github.com/alsolovyev/OneClick/commit/0b6fa0cf23ef50f53befc586233c635a440e87f6))
+* add 'launch at login' ([344895](https://github.com/alsolovyev/OneClick/commit/344895705d3535436e56add152adda856c4e4f6b))
 
 ### Improvements
 
