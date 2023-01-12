@@ -13,9 +13,6 @@ import SwiftUI
 struct MainMenuView: View {
     @ObservedObject var lowPower: LowPowerViewModel = LowPowerViewModel()
     @ObservedObject var launchAtLogin: LaunchAtLogin = LaunchAtLogin()
-    @ObservedObject var timer: TimerViewModel = TimerViewModel()
-    
-    @State var timerDuration: Int = 5
     
     var body: some View {
         VStack(alignment: .center) {
@@ -30,19 +27,7 @@ struct MainMenuView: View {
                     lowPower.toggle()
                 }
                 
-                OneClickSwitch(
-                    title:  "\(timer.isRunning ? "Stop" : "Stop") \(timerDuration) Minute Timer",
-                    isEnabled: timer.isRunning,
-                    icon: timer.isRunning ? "pause.fill" : "play.fill"
-                ) {
-                    timer.isRunning ? timer.stop() : timer.start(duration: Double(timerDuration))
-                }.contextMenu{
-                    ForEach(timer.timers, id: \.self) { t in
-                        Button("Set timer for \(t) min") {
-                            timerDuration = t
-                        }
-                    }
-                }
+                TimerView()
             }
             
             Divider()

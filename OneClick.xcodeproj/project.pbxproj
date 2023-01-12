@@ -25,6 +25,7 @@
 		A1B7BD0029618473002A0080 /* AccessibilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B7BCFF29618473002A0080 /* AccessibilityService.swift */; };
 		A1B7BD0229618A4F002A0080 /* WindowManagerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B7BD0129618A4F002A0080 /* WindowManagerService.swift */; };
 		A1D1DA5F296F184F00583939 /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D1DA5E296F184F00583939 /* TimerViewModel.swift */; };
+		A1D997F029703F3100F368ED /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D997EF29703F3100F368ED /* TimerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		A1B7BCFF29618473002A0080 /* AccessibilityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityService.swift; sourceTree = "<group>"; };
 		A1B7BD0129618A4F002A0080 /* WindowManagerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowManagerService.swift; sourceTree = "<group>"; };
 		A1D1DA5E296F184F00583939 /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
+		A1D997EF29703F3100F368ED /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 			children = (
 				A1B7BCEB29617F9A002A0080 /* MainMenuView.swift */,
 				A1201F8A2968976A007D99DE /* WindowManagerView.swift */,
+				A1D997EF29703F3100F368ED /* TimerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				A1B7BD0029618473002A0080 /* AccessibilityService.swift in Sources */,
 				A15F621A2964367400081EBE /* LowPowerViewModel.swift in Sources */,
 				A1266C192969AECF00A99E9E /* LaunchAtLoginViewModel.swift in Sources */,
+				A1D997F029703F3100F368ED /* TimerView.swift in Sources */,
 				A1B7BD0229618A4F002A0080 /* WindowManagerService.swift in Sources */,
 				A10FE1C5296334480087BBF1 /* Constants.swift in Sources */,
 				A10FE1CF2963557D0087BBF1 /* Errors.swift in Sources */,
@@ -395,7 +399,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 0.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alsolovyev.OneClick;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -426,7 +430,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 0.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alsolovyev.OneClick;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
