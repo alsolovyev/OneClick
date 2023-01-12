@@ -15,6 +15,7 @@
 		A10FE1CF2963557D0087BBF1 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10FE1CE2963557D0087BBF1 /* Errors.swift */; };
 		A1201F8B2968976A007D99DE /* WindowManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1201F8A2968976A007D99DE /* WindowManagerView.swift */; };
 		A1266C192969AECF00A99E9E /* LaunchAtLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1266C182969AECF00A99E9E /* LaunchAtLoginViewModel.swift */; };
+		A14DE04A296FEAAF0005A373 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14DE049296FEAAF0005A373 /* NotificationService.swift */; };
 		A15F621A2964367400081EBE /* LowPowerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15F62192964367400081EBE /* LowPowerViewModel.swift */; };
 		A1B7BCEA29617F9A002A0080 /* OneClickApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B7BCE929617F9A002A0080 /* OneClickApp.swift */; };
 		A1B7BCEC29617F9A002A0080 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B7BCEB29617F9A002A0080 /* MainMenuView.swift */; };
@@ -23,6 +24,7 @@
 		A1B7BCFC29618120002A0080 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B7BCFB29618120002A0080 /* AppDelegate.swift */; };
 		A1B7BD0029618473002A0080 /* AccessibilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B7BCFF29618473002A0080 /* AccessibilityService.swift */; };
 		A1B7BD0229618A4F002A0080 /* WindowManagerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B7BD0129618A4F002A0080 /* WindowManagerService.swift */; };
+		A1D1DA5F296F184F00583939 /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D1DA5E296F184F00583939 /* TimerViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,7 @@
 		A10FE1CE2963557D0087BBF1 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		A1201F8A2968976A007D99DE /* WindowManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowManagerView.swift; sourceTree = "<group>"; };
 		A1266C182969AECF00A99E9E /* LaunchAtLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAtLoginViewModel.swift; sourceTree = "<group>"; };
+		A14DE049296FEAAF0005A373 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		A15F62192964367400081EBE /* LowPowerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LowPowerViewModel.swift; sourceTree = "<group>"; };
 		A1B7BCE629617F9A002A0080 /* OneClick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneClick.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B7BCE929617F9A002A0080 /* OneClickApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneClickApp.swift; sourceTree = "<group>"; };
@@ -44,6 +47,7 @@
 		A1B7BCFB29618120002A0080 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1B7BCFF29618473002A0080 /* AccessibilityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityService.swift; sourceTree = "<group>"; };
 		A1B7BD0129618A4F002A0080 /* WindowManagerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowManagerService.swift; sourceTree = "<group>"; };
+		A1D1DA5E296F184F00583939 /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +100,7 @@
 			children = (
 				A15F62192964367400081EBE /* LowPowerViewModel.swift */,
 				A1266C182969AECF00A99E9E /* LaunchAtLoginViewModel.swift */,
+				A1D1DA5E296F184F00583939 /* TimerViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -157,6 +162,7 @@
 			children = (
 				A1B7BCFF29618473002A0080 /* AccessibilityService.swift */,
 				A1B7BD0129618A4F002A0080 /* WindowManagerService.swift */,
+				A14DE049296FEAAF0005A373 /* NotificationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -241,7 +247,9 @@
 				A1B7BD0229618A4F002A0080 /* WindowManagerService.swift in Sources */,
 				A10FE1C5296334480087BBF1 /* Constants.swift in Sources */,
 				A10FE1CF2963557D0087BBF1 /* Errors.swift in Sources */,
+				A1D1DA5F296F184F00583939 /* TimerViewModel.swift in Sources */,
 				A1201F8B2968976A007D99DE /* WindowManagerView.swift in Sources */,
+				A14DE04A296FEAAF0005A373 /* NotificationService.swift in Sources */,
 				A1B7BCEA29617F9A002A0080 /* OneClickApp.swift in Sources */,
 				A10FE1C9296348720087BBF1 /* CGExtension.swift in Sources */,
 				A10FE1C229632BF30087BBF1 /* NSExtension.swift in Sources */,

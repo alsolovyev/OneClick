@@ -7,14 +7,36 @@
 
 import SwiftUI
 
-struct TimerViewModel: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+class TimerViewModel: ObservableObject {
+    @Published var isRunning: Bool = false
+    
+    public let timers: [Int] = [1, 5, 10, 15, 30, 45, 60]
+    
+    private var timer: Timer? = nil
+    
+    public func start(duration: Double) {
+        if isRunning { return }
+            
+        timer = Timer(timeInterval: duration * 60, target: self, selector: #selector(tick), userInfo: nil, repeats: true)
+        
+        RunLoop.current.add(timer!, forMode: .common)
+
+        isRunning = true
+    }
+    
+    @objc func tick() {
+        NotificationService.shared.show(title: "Hey!", subtitle: "Timer is over")
+        stop()
+    }
+    
+    public func stop() {
+        if !isRunning { return }
+        
+        timer!.invalidate()
+        timer = nil
+        
+        isRunning = false
     }
 }
 
-struct TimerViewModel_Previews: PreviewProvider {
-    static var previews: some View {
-        TimerViewModel()
-    }
-}
+
