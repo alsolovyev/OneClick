@@ -88,9 +88,25 @@ struct MainMenuView_Previews: PreviewProvider {
 
 struct OneClickSwitch: View {
     var title: String
+    var subtitle: String? = nil
     var isEnabled: Bool
     var icon: String
     var action: () -> Void
+    
+    init(title: String, subtitle: String, isEnabled: Bool, icon: String, action: @escaping () -> Void ) {
+        self.title = title
+        self.subtitle = subtitle
+        self.isEnabled = isEnabled
+        self.icon = icon
+        self.action = action
+    }
+    
+    init(title: String, isEnabled: Bool, icon: String, action: @escaping () -> Void ) {
+        self.title = title
+        self.isEnabled = isEnabled
+        self.icon = icon
+        self.action = action
+    }
     
     var body: some View {
         Button {
@@ -107,7 +123,7 @@ struct OneClickSwitch: View {
                 VStack(alignment: .leading) {
                     Text(title)
                         .font(.system(size: 12, weight: .medium))
-                    Text(isEnabled ? "On" : "Off")
+                    Text(subtitle != nil ? subtitle! : isEnabled ? "On" : "Off")
                         .font(.system(size: 10, weight: .medium))
                         .foregroundColor(.white.opacity(0.5))
                 }
