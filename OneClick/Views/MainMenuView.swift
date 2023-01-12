@@ -125,6 +125,7 @@ struct OneClickSwitch: View {
         }
         .buttonStyle(.plain)
         .background(.gray.opacity(0.1))
+        .cornerRadius(8)
         .overlay(
             RoundedRectangle(cornerRadius: 8)
                 .stroke(.black.opacity(0.2), lineWidth: 0.5)
