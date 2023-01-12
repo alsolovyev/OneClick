@@ -21,9 +21,11 @@ struct TimerView: View {
         ) {
             timer.isRunning ? timer.stop() : timer.start(duration: timerDuration)
         }.contextMenu{
-            ForEach(timer.timers, id: \.self) { t in
-                Button("Set timer for \(t) min") {
-                    timerDuration = t
+            if !timer.isRunning {
+                ForEach(timer.timers, id: \.self) { t in
+                    Button("Set timer for \(t) min") {
+                        timerDuration = t
+                    }
                 }
             }
         }
