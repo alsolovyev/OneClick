@@ -13,8 +13,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     private var popover: NSPopover!
     
     func applicationWillFinishLaunching(_ notification: Notification) {
-        _ = AccessibilityService.shared.checkPermission()
-        
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         
         if let statusButton = statusItem.button {

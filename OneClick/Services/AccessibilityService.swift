@@ -13,14 +13,14 @@ class AccessibilityService {
     
     static let shared = AccessibilityService()
     
-    public func checkPermission() -> Bool {
-        if (isPermitted) {
-            return true
-        }
+    private init() {
+        checkPermission()
+    }
+    
+    public func checkPermission() {
+        if (isPermitted) { return }
         
         let options: NSDictionary = [kAXTrustedCheckOptionPrompt.takeRetainedValue() as NSString: true]
         isPermitted = AXIsProcessTrustedWithOptions(options)
-        
-        return isPermitted
     }
 }
