@@ -13,6 +13,7 @@ Pods
 *.perspective
 *.perspectivev3
 *.pbxuser
+*UserInterfaceState.xcuserstate
 
 ## Xcode Patch
 *.xcodeproj/*
