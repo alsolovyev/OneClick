@@ -140,7 +140,8 @@ extension WindowManagerService {
         
         var size = mainScreen.size
         size.width = size.width * 0.91
-        size.height -= Constants.Window.gap
+        size.height -= Constants.Window.gap * 2
+        
         
         to(position: position, size: size)
     }
