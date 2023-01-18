@@ -11,8 +11,6 @@ class TimerViewModel: ObservableObject {
     @Published var isRunning: Bool = false
     @Published var timeLeft: String = "00:00"
     
-    public let timers: [Int] = [1, 5, 10, 15, 30, 45, 60]
-    
     private var timer: Timer? = nil
     private var duration: Int = 0
     private var time: Int = 0
