@@ -8,25 +8,25 @@
 import SwiftUI
 
 struct TimerView: View {
-    @StateObject var timer: TimerViewModel = TimerViewModel()
+    @EnvironmentObject var userDefaults: UserDefaultsViewModel
     
-    @State var duration: Int = 5
+    @StateObject var timer: TimerViewModel = TimerViewModel()
     
     public let durations: [Int] = [1, 5, 10, 15, 30, 45, 60]
     
     var body: some View {
         OneClickSwitch(
-            title:  "\(timer.isRunning ? "Stop" : "Start") \(duration) Minute Timer",
+            title:  "\(timer.isRunning ? "Stop" : "Start") \(userDefaults.timerDuration!) Minute Timer",
             subtitle: timer.timeLeft,
             isEnabled: timer.isRunning,
             icon: timer.isRunning ? "pause.fill" : "play.fill"
         ) {
-            timer.isRunning ? timer.stop() : timer.start(duration: duration)
+            timer.isRunning ? timer.stop() : timer.start(duration: userDefaults.timerDuration)
         }.contextMenu{
             if !timer.isRunning {
                 ForEach(durations, id: \.self) { t in
                     Button("Set timer for \(t) min") {
-                        duration = t
+                        userDefaults.SetTimerDuration(t)
                     }
                 }
             }

@@ -13,6 +13,7 @@ import SwiftUI
 struct MainMenuView: View {
     @ObservedObject var lowPower: LowPowerViewModel = LowPowerViewModel()
     @ObservedObject var launchAtLogin: LaunchAtLogin = LaunchAtLogin()
+    @ObservedObject var userDefaults: UserDefaultsViewModel = UserDefaultsViewModel()
     
     var body: some View {
         VStack(alignment: .center) {
@@ -28,6 +29,7 @@ struct MainMenuView: View {
                 }
                 
                 TimerView()
+                    .environmentObject(userDefaults)
             }
             
             Divider()
