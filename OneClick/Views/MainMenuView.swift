@@ -158,7 +158,7 @@ struct OneClickButton: View {
             .font(.system(size: 9, weight: .medium))
             .lineLimit(1)
             .multilineTextAlignment(.center)
-            .frame(width: 70, height: 62)
+            .frame(width: 74.0, height: 62)
             .contentShape(Rectangle())
             .background(.gray.opacity(0.1))
             .cornerRadius(8)
@@ -166,10 +166,8 @@ struct OneClickButton: View {
                 RoundedRectangle(cornerRadius: 8)
                     .stroke(.white.opacity(0.1), lineWidth: 1)
             )
-            
         }
         .buttonStyle(.plain)
-        .padding(2)
         .overlay(
             RoundedRectangle(cornerRadius: 8)
                 .stroke(.black.opacity(0.2), lineWidth: 0.5)
