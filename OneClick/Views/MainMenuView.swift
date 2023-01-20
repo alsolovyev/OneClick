@@ -6,11 +6,14 @@
 //
 
 // TODO: - Split code into separate files
-// TODO: - Add button styles
+// TODO: - Refactor UI styles
+// TODO: - Add color scheme for dark and light modes (remove constant ugly colors from code)
 
 import SwiftUI
 
 struct MainMenuView: View {
+    @Environment(\.colorScheme) var colorScheme
+    
     @ObservedObject var lowPower: LowPowerViewModel = LowPowerViewModel()
     @ObservedObject var launchAtLogin: LaunchAtLogin = LaunchAtLogin()
     @ObservedObject var userDefaults: UserDefaultsViewModel = UserDefaultsViewModel()
@@ -42,7 +45,7 @@ struct MainMenuView: View {
                     NSApplication.shared.terminate(nil)
                 } label: {
                     Image(systemName: "power")
-                        .foregroundColor(.white.opacity(0.5))
+                        .foregroundColor(colorScheme == .dark ? .white.opacity(0.5) : .black.opacity(0.5))
                         .fontWeight(.medium)
                 }
                     .buttonStyle(.plain)
@@ -52,7 +55,7 @@ struct MainMenuView: View {
                     launchAtLogin.toggle()
                 } label: {
                     Image(systemName: "pin")
-                        .foregroundColor(launchAtLogin.isEnabled ? .blue : .white.opacity(0.5))
+                        .foregroundColor(launchAtLogin.isEnabled ? .blue : colorScheme == .dark ? .white.opacity(0.5) : .black.opacity(0.5))
                         .fontWeight(.medium)
                 }
                     .buttonStyle(.plain)
@@ -74,6 +77,8 @@ struct MainMenuView_Previews: PreviewProvider {
 }
 
 struct OneClickSwitch: View {
+    @Environment(\.colorScheme) var colorScheme
+    
     var title: String
     var subtitle: String? = nil
     var isEnabled: Bool
@@ -105,6 +110,7 @@ struct OneClickSwitch: View {
                         .frame(width: 32, height: 32)
                         .foregroundColor(isEnabled ? .blue : .gray.opacity(0.4))
                     Image(systemName: icon)
+                        .foregroundColor(isEnabled && colorScheme == .light ? .white.opacity(1.0) : .none)
                 }
                 
                 VStack(alignment: .leading) {
@@ -112,7 +118,7 @@ struct OneClickSwitch: View {
                         .font(.system(size: 12, weight: .medium))
                     Text(subtitle != nil ? subtitle! : isEnabled ? "On" : "Off")
                         .font(.system(size: 10, weight: .medium))
-                        .foregroundColor(.white.opacity(0.5))
+                        .foregroundColor(colorScheme == .dark ? .white.opacity(0.5) : .black.opacity(0.5))
                 }
             }
             .cornerRadius(8)
@@ -138,6 +144,8 @@ struct OneClickSwitch: View {
 }
 
 struct OneClickButton: View {
+    @Environment(\.colorScheme) var colorScheme
+    
     var labelTop: String
     var labelBottom: String
     var icon: String
@@ -150,7 +158,7 @@ struct OneClickButton: View {
             VStack() {
                 Image(systemName: icon)
                     .resizable()
-                    .foregroundColor(.white.opacity(0.7))
+                    .foregroundColor(colorScheme == .dark ? .white.opacity(0.7) :  .black.opacity(0.7))
                     .frame(width: 19.2, height: 16.0)
                 Text(labelTop)
                 Text(labelBottom)
