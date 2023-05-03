@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import KeyboardShortcuts
 
 class AppDelegate: NSObject, NSApplicationDelegate {
     
@@ -27,6 +28,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         popover.contentViewController?.view = NSHostingView(rootView: MainMenuView())
         // Hide arrow
         popover.setValue(true, forKeyPath: "shouldHideAnchor")
+    }
+    
+    func applicationDidFinishLaunching(_ notification: Notification) {
+        // Add global shortcuts
+        KeyboardShortcuts.onKeyUp(for: .toFullScreen) { WindowManagerService.shared.toFullScreen() }
+        KeyboardShortcuts.onKeyUp(for: .toHalfLeft) { WindowManagerService.shared.toHalfLeft() }
+        KeyboardShortcuts.onKeyUp(for: .toHalfRight) { WindowManagerService.shared.toHalfRight() }
+        KeyboardShortcuts.onKeyUp(for: .toNineTenthsLeft) { WindowManagerService.shared.toNineTenthsLeft() }
     }
     
     @objc func togglePopover() {

@@ -26,6 +26,7 @@
 		A1B7BD0229618A4F002A0080 /* WindowManagerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B7BD0129618A4F002A0080 /* WindowManagerService.swift */; };
 		A1BF9E502978510B005C8AC4 /* UserDefaultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BF9E4F2978510B005C8AC4 /* UserDefaultsViewModel.swift */; };
 		A1BF9E5229785129005C8AC4 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BF9E5129785129005C8AC4 /* UserDefaults.swift */; };
+		A1D0FC6F2A0261200024407F /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = A1D0FC6E2A0261200024407F /* KeyboardShortcuts */; };
 		A1D1DA5F296F184F00583939 /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D1DA5E296F184F00583939 /* TimerViewModel.swift */; };
 		A1D997F029703F3100F368ED /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D997EF29703F3100F368ED /* TimerView.swift */; };
 /* End PBXBuildFile section */
@@ -61,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1D0FC6F2A0261200024407F /* KeyboardShortcuts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,6 +194,9 @@
 			dependencies = (
 			);
 			name = OneClick;
+			packageProductDependencies = (
+				A1D0FC6E2A0261200024407F /* KeyboardShortcuts */,
+			);
 			productName = OneClick;
 			productReference = A1B7BCE629617F9A002A0080 /* OneClick.app */;
 			productType = "com.apple.product-type.application";
@@ -220,6 +225,9 @@
 				Base,
 			);
 			mainGroup = A1B7BCDD29617F9A002A0080;
+			packageReferences = (
+				A1D0FC6D2A0261200024407F /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */,
+			);
 			productRefGroup = A1B7BCE729617F9A002A0080 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -472,6 +480,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A1D0FC6D2A0261200024407F /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/KeyboardShortcuts";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A1D0FC6E2A0261200024407F /* KeyboardShortcuts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A1D0FC6D2A0261200024407F /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */;
+			productName = KeyboardShortcuts;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A1B7BCDE29617F9A002A0080 /* Project object */;
 }
