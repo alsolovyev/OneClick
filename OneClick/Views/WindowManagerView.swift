@@ -21,6 +21,30 @@ struct WindowManagerView: View {
                 
                 OneClickButton(
                     labelTop: "Left",
+                    labelBottom: "Nine Tenths",
+                    icon: "rectangle.leadinghalf.inset.filled"
+                ) {
+                    WindowManagerService.shared.toNineTenthsLeft()
+                }
+                
+                OneClickButton(
+                    labelTop: "Left",
+                    labelBottom: "Half",
+                    icon: "rectangle.leadinghalf.inset.filled"
+                ) {
+                    WindowManagerService.shared.toHalfLeft()
+                }
+                
+                OneClickButton(
+                    labelTop: "Right",
+                    labelBottom: "Half",
+                    icon: "rectangle.leadinghalf.inset.filled"
+                ) {
+                    WindowManagerService.shared.toHalfRight()
+                }
+                
+                OneClickButton(
+                    labelTop: "Left",
                     labelBottom: "Two Thirds",
                     icon: "rectangle.leadinghalf.inset.filled"
                 ) {
@@ -33,14 +57,6 @@ struct WindowManagerView: View {
                     icon: "rectangle.trailingthird.inset.filled"
                 ) {
                     WindowManagerService.shared.toOneThirdRight()
-                }
-                
-                OneClickButton(
-                    labelTop: "Left",
-                    labelBottom: "Nine Tenths",
-                    icon: "rectangle.leadinghalf.inset.filled"
-                ) {
-                    WindowManagerService.shared.toNineTenthsLeft()
                 }
             }
         }.frame(width: 240)

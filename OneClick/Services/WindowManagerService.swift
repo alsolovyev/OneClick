@@ -5,6 +5,8 @@
 //  Created by Aleksey Solovyev on 01.01.2023.
 //
 
+// TODO: Write a function that calculates the size of an app window based on the provided string and caches the result for future use.
+
 import Foundation
 import SwiftUI
 
@@ -100,6 +102,38 @@ extension WindowManagerService {
     }
 }
 
+// MARK: - Move a Window to the Right Half of the Screen
+extension WindowManagerService {
+    func toHalfRight() {
+        var position = mainScreen.origin
+        var size = mainScreen.size
+
+        position.x += size.width / 2 + Constants.Window.gap / 2
+        position.y += Constants.Window.gap
+        
+        size.width = size.width / 2 - Constants.Window.gap * 1.5
+        size.height -= Constants.Window.gap * 2
+
+        to(position: position, size: size)
+    }
+}
+
+
+// MARK: - Move a Window to the Left Half of the Screen
+extension WindowManagerService {
+    func toHalfLeft() {
+        var position = mainScreen.origin
+        var size = mainScreen.size
+        
+        position.x += Constants.Window.gap
+        position.y += Constants.Window.gap
+
+        size.width = size.width / 2 - Constants.Window.gap * 1.5
+        size.height -= Constants.Window.gap * 2
+        
+        to(position: position, size: size)
+    }
+}
 
 // MARK: - Two Thirds to the Left
 extension WindowManagerService {
@@ -141,7 +175,6 @@ extension WindowManagerService {
         var size = mainScreen.size
         size.width = size.width * 0.91
         size.height -= Constants.Window.gap * 2
-        
         
         to(position: position, size: size)
     }
